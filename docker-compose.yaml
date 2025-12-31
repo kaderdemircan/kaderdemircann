@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: my-static-web
+    restart: always
+    ports:
+      - "80:80"       # Coolify kendi port yönlendirmesini yapacaktır, burada default bırak
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      # Eğer bir klasörünüz varsa:
+      # - ./public:/usr/share/nginx/html:ro
